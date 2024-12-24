@@ -1,46 +1,47 @@
 import {View, Text, SafeAreaView} from 'react-native';
 import React from 'react';
-import Variables from './src/ModuleOne/Variables';
-import DataTypes from './src/ModuleOne/DataTypes';
-import Function from './src/ModuleOne/Function';
-import Hooks from './src/ModuleOne/Hooks';
-import Chaining from './src/ModuleOne/Chaining';
-import CounterApp from './src/ModuleOne/CounterApp';
-import Inline from './src/ModuleTwo/CssTypes/Inline';
-import Internal from './src/ModuleTwo/CssTypes/Internal';
-import External from './src/ModuleTwo/CssTypes/External';
-import ScrollViewComponent from './src/ModuleTwo/ScrollViewComponent';
-import FlatListComponent from './src/ModuleTwo/FlatListComponent';
-import FlatlistInsideScrollView from './src/ModuleTwo/FlatlistInsideScrollView';
-import ActivityIndicatorComponent from './src/ModuleTwo/ActivityIndicatorComponent';
-import SortComponent from './src/ModuleOne/SortComponent';
-import FliterComponent from './src/ModuleOne/FliterComponent';
-import ModelComponent from './src/ModuleTwo/ModelComponent';
-import ImageComponent from './src/ModuleTwo/ImageComponent';
-import BackgroundImage from './src/ModuleTwo/BackgroundImage';
-import ModalImageCoomponent from './src/ModuleTwo/ModalImageCoomponent';
-import InputComponent from './src/ModuleTwo/InputComponent';
-import AudioComponent from './src/ModuleTwo/AudioComponent';
-import SwitchandChecbox from './src/ModuleTwo/SwitchandChecbox';
+import Variables from './src/Screens/Modules/ModuleOne/Variables';
+import DataTypes from './src/Screens/Modules/ModuleOne/DataTypes';
+import Function from './src/Screens/Modules/ModuleOne/Function';
+import Hooks from './src/Screens/Modules/ModuleOne/Hooks';
+import Chaining from './src/Screens/Modules/ModuleOne/Chaining';
+import CounterApp from './src/Screens/Modules/ModuleOne/CounterApp';
+import Inline from './src/Screens/Modules/ModuleTwo/CssTypes/Inline';
+import Internal from './src/Screens/Modules/ModuleTwo/CssTypes/Internal';
+import External from './src/Screens/Modules/ModuleTwo/CssTypes/External';
+import ScrollViewComponent from './src/Screens/Modules/ModuleTwo/ScrollViewComponent';
+import FlatListComponent from './src/Screens/Modules/ModuleTwo/FlatListComponent';
+import FlatlistInsideScrollView from './src/Screens/Modules/ModuleTwo/FlatlistInsideScrollView';
+import ActivityIndicatorComponent from './src/Screens/Modules/ModuleTwo/ActivityIndicatorComponent';
+import SortComponent from './src/Screens/Modules/ModuleOne/SortComponent';
+import FliterComponent from './src/Screens/Modules/ModuleOne/FliterComponent';
+import ModelComponent from './src/Screens/Modules/ModuleTwo/ModelComponent';
+import ImageComponent from './src/Screens/Modules/ModuleTwo/ImageComponent';
+import BackgroundImage from './src/Screens/Modules/ModuleTwo/BackgroundImage';
+import ModalImageCoomponent from './src/Screens/Modules/ModuleTwo/ModalImageCoomponent';
+import InputComponent from './src/Screens/Modules/ModuleTwo/InputComponent';
+import AudioComponent from './src/Screens/Modules/ModuleTwo/AudioComponent';
+import SwitchandChecbox from './src/Screens/Modules/ModuleTwo/SwitchandChecbox';
+import Routes from './src/Routes';
 
 const App = () => {
   return (
     <View style={{flex: 1}}>
       {/* ModuleOne */}
+
       {/* <DataTypes /> */}
       {/* <Variables /> */}
       {/* <Function /> */}
       {/* <Hooks /> */}
       {/* <Chaining /> */}
-      {/* <Conditons /> */}
       {/* <CounterApp /> */}
       {/* <SortComponent /> */}
-      {/* <FliterComponent /> */}
+
       {/* ModuleTwo */}
+
       {/* <Inline /> */}
       {/* <Internal /> */}
       {/* <External /> */}
-      {/* <ResponsiveCss /> */}
       {/* <ScrollViewComponent /> */}
       {/* <FlatListComponent /> */}
       {/* <FlatlistInsideScrollView /> */}
@@ -51,10 +52,17 @@ const App = () => {
       {/* <ModalImageCoomponent /> */}
       {/* <InputComponent /> */}
       {/* <AudioComponent /> */}
+      {/* <SwitchandChecbox /> */}
 
-      <SwitchandChecbox />
+      {/* ModuleTwo */}
+
+      <Routes />
     </View>
   );
 };
 
 export default App;
+
+// <ResponsiveCss />;
+//  <Conditons />;
+// <FliterComponent />;
