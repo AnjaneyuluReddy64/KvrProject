@@ -23,14 +23,15 @@ import InputComponent from './src/Screens/Modules/ModuleTwo/InputComponent';
 import AudioComponent from './src/Screens/Modules/ModuleTwo/AudioComponent';
 import SwitchandChecbox from './src/Screens/Modules/ModuleTwo/SwitchandChecbox';
 import Routes from './src/Routes';
+import Home from './src/Screens/Modules/ModuleFour/Home';
 
 const App = () => {
   return (
     <View style={{flex: 1}}>
       {/* ModuleOne */}
 
-      {/* <DataTypes /> */}
-      {/* <Variables /> */}
+      {/* <DataTypes />
+      <Variables /> */}
       {/* <Function /> */}
       {/* <Hooks /> */}
       {/* <Chaining /> */}
@@ -54,15 +55,10 @@ const App = () => {
       {/* <AudioComponent /> */}
       {/* <SwitchandChecbox /> */}
 
-      {/* ModuleTwo */}
-
+      {/* ModuleFour */}
       <Routes />
     </View>
   );
 };
 
 export default App;
-
-// <ResponsiveCss />;
-//  <Conditons />;
-// <FliterComponent />;
