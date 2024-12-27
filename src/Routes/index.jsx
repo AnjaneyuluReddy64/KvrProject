@@ -8,7 +8,11 @@ import {Text, View} from 'react-native';
 import One from '../Screens/Modules/ModuleFour/One';
 import Two from '../Screens/Modules/ModuleFour/Two';
 import Three from '../Screens/Modules/ModuleFour/Three';
-import Home from '../Screens/Modules/ModuleFour/Home';
+import Home from '../Screens/MainScreens/Home';
+import Post from '../Screens/MainScreens/Post';
+import Profile from '../Screens/MainScreens/Profile';
+import Settings from '../Screens/MainScreens/Settings';
+import DrawerScreen from '../Screens/DrawerScreen';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -32,11 +36,7 @@ const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
       screenOptions={{headerShown: false}}
-      drawerContent={() => (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <Text>Hi, I am from the drawer</Text>
-        </View>
-      )}>
+      drawerContent={props => <DrawerScreen {...props} />}>
       <Drawer.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
     </Drawer.Navigator>
   );
@@ -47,6 +47,9 @@ const BottomTabNavigator = () => {
   return (
     <BottomTabs.Navigator screenOptions={{headerShown: false}}>
       <BottomTabs.Screen name="Home" component={Home} />
+      <BottomTabs.Screen name="Post" component={Post} />
+      <BottomTabs.Screen name="Profile" component={Profile} />
+      <BottomTabs.Screen name="Settings" component={Settings} />
     </BottomTabs.Navigator>
   );
 };
