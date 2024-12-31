@@ -3,7 +3,7 @@ import React from 'react';
 
 const Post = () => {
   return (
-    <View>
+    <View style={{backgroundColor: 'green', height: 600}}>
       <Text>Post</Text>
     </View>
   );

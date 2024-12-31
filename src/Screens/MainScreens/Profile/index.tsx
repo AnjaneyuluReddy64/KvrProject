@@ -3,8 +3,8 @@ import React from 'react';
 
 const Profile = () => {
   return (
-    <View>
-      <Text>Profile</Text>
+    <View style={{backgroundColor: 'blue', height: 600}}>
+      <Text style={{color: 'red'}}>Profile</Text>
     </View>
   );
 };

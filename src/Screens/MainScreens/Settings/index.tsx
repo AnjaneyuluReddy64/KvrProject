@@ -3,8 +3,12 @@ import React from 'react';
 
 const Settings = () => {
   return (
-    <View>
-      <Text>Settings</Text>
+    <View
+      style={{
+        backgroundColor: 'black',
+        height: 600,
+      }}>
+      <Text style={{color: 'red'}}>Settings</Text>
     </View>
   );
 };
