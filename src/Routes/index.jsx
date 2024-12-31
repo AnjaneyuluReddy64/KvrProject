@@ -9,6 +9,11 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import DrawerScreen from '../Screens/DrawerScreen';
 import {HomeIcon} from '../Utils/Svg';
+import Post from '../Screens/MainScreens/Post';
+import Profile from '../Screens/MainScreens/Profile';
+import Settings from '../Screens/MainScreens/Settings';
+import DataTypes from '../Screens/Modules/ModuleOne/DataTypes';
+
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -24,6 +29,8 @@ const Routes = () => {
         <Stack.Screen name="One" component={One} />
         <Stack.Screen name="Two" component={Two} />
         <Stack.Screen name="Three" component={Three} />
+        <Stack.Screen name="Post" component={Post} />
+        <Stack.Screen name="DataTypes" component={DataTypes} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -57,7 +64,7 @@ const BottomNavigator = () => {
                   fill={focused ? 'blue' : 'gray'}
                 />
               );
-            case 'One':
+            case 'Post':
               return (
                 <HomeIcon
                   height={size}
@@ -69,9 +76,9 @@ const BottomNavigator = () => {
         },
       })}>
       <BottomTab.Screen name="Home" component={Home} />
-      <BottomTab.Screen name="One" component={One} />
-      <BottomTab.Screen name="Two" component={Two} />
-      <BottomTab.Screen name="Three" component={Three} />
+      <BottomTab.Screen name="Post" component={Post} />
+      <BottomTab.Screen name="Profile" component={Profile} />
+      <BottomTab.Screen name="Settings" component={Settings} />
     </BottomTab.Navigator>
   );
 };
