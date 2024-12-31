@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from '../Screens/Modules/ModuleFour/Home';
+
 import One from '../Screens/Modules/ModuleFour/One';
 import Two from '../Screens/Modules/ModuleFour/Two';
 import Three from '../Screens/Modules/ModuleFour/Three';
@@ -13,6 +13,7 @@ import Post from '../Screens/MainScreens/Post';
 import Profile from '../Screens/MainScreens/Profile';
 import Settings from '../Screens/MainScreens/Settings';
 import DataTypes from '../Screens/Modules/ModuleOne/DataTypes';
+import Home from '../Screens/MainScreens/Home';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
