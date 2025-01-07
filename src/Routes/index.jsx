@@ -1,7 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
 import One from '../Screens/Modules/ModuleFour/One';
 import Two from '../Screens/Modules/ModuleFour/Two';
 import Three from '../Screens/Modules/ModuleFour/Three';
@@ -36,7 +35,6 @@ const Routes = () => {
     </NavigationContainer>
   );
 };
-
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
@@ -83,5 +81,4 @@ const BottomNavigator = () => {
     </BottomTab.Navigator>
   );
 };
-
 export default Routes;
