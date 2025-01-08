@@ -3,11 +3,25 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const hostApiServices = createApi({
     reducerPath: 'hostApiServices',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://6773d3bb77a26d4701c674b0.mockapi.io' }),
-    endpoints: (builder: any) => ({
+    endpoints: (builder) => ({
+
+        // Users Get Call
         getUsers: builder.query({
-            query: () => '/students',
+            query: () => ({
+                url: '/students',
+                method: 'GET',
+            }),
+        }),
+
+        // Users POST Call
+        postRequestToUpdateInfo: builder.mutation({
+            query: (data) => ({
+                url: '/students',
+                method: 'POST',
+                body: data,
+            }),
         }),
     }),
 });
 
-export const { useLazyGetUsersQuery } = hostApiServices;
+export const { useLazyGetUsersQuery, usePostRequestToUpdateInfoMutation } = hostApiServices;

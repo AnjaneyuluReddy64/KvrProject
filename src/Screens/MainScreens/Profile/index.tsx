@@ -1,37 +1,37 @@
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
 import React, {useEffect} from 'react';
+import {useLazyGetUsersQuery} from '../../../APIServices/hostApiServices';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 
-import {useLazyGetUsersQuery} from '../../../APIServices/hostApiServices';
-
-const Settings = () => {
+const Profile = () => {
   const [triggerFetchUsers, userData] = useLazyGetUsersQuery();
 
   const userList = userData?.currentData || [];
-  // const isLoading = userData?.isLoading || false;
+  const isLoading = userData?.isLoading || false;
 
   useEffect(() => {
-    fetchUser();
+    fetchUsers();
   }, []);
 
-  const fetchUser = async () => {
+  const fetchUsers = async () => {
     try {
       const response = await triggerFetchUsers({}).unwrap();
       if (response) {
-        console.log('API call sucessfully');
+        console.log('API fetched successfully');
       } else {
-        console.log('API call Faild');
+        console.log('Failed to fetch API');
       }
     } catch (error) {
-      console.error(error);
+      console.error('Error fetching users:', error);
     }
   };
+
   useEffect(() => {
-    console.log(userList);
-  }, []);
+    console.log('Fetched Users:', userList, 'Loading State:', isLoading);
+  }, [userData]);
 
   const renderUserCard = ({item}) => (
     <View style={styles.userCard}>
@@ -47,26 +47,38 @@ const Settings = () => {
   );
 
   return (
-    <View>
-      <FlatList
-        data={userList || []}
-        renderItem={renderUserCard}
-        keyExtractor={(item, index) => index.toString()}
-      />
+    <View style={styles.container}>
+      <View style={styles.contentWrapper}>
+        {isLoading ? (
+          <View style={styles.loadingContainer}>
+            <Text style={styles.loadingText}>Loading...</Text>
+          </View>
+        ) : (
+          <View style={styles.dataWrapper}>
+            {userList.length === 0 ? (
+              <Text style={styles.noDataText}>No Data Found</Text>
+            ) : (
+              <FlatList
+                data={userList || []}
+                renderItem={renderUserCard}
+                keyExtractor={(item, index) => index.toString()}
+              />
+            )}
+          </View>
+        )}
+      </View>
     </View>
   );
 };
 
-export default Settings;
+export default Profile;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f2f2f2', // Light background color for overall container
   },
   contentWrapper: {
     flex: 1,
-    padding: hp('2%'), // Add padding to content wrapper
   },
   loadingContainer: {
     flex: 1,
@@ -76,23 +88,15 @@ const styles = StyleSheet.create({
   loadingText: {
     fontSize: hp('2%'),
     textAlign: 'center',
-    color: '#555', // Grey color for loading text
   },
   dataWrapper: {
     flex: 1,
   },
   userCard: {
     borderWidth: wp('0.5%'),
-    borderColor: '#ccc', // Light grey border color
     margin: hp('1%'),
-    padding: hp('2%'), // Increased padding for user cards
+    padding: hp('1%'),
     borderRadius: hp('1%'),
-    backgroundColor: '#fff', // White background for user cards
-    shadowColor: '#000', // Shadow color for cards
-    shadowOffset: {width: 0, height: 2}, // Shadow offset for cards
-    shadowOpacity: 0.1, // Shadow opacity
-    shadowRadius: 5, // Shadow radius
-    elevation: 3, // Elevation for shadow effect on Android
   },
   rowContainer: {
     flexDirection: 'row',
@@ -101,12 +105,8 @@ const styles = StyleSheet.create({
   userText: {
     fontSize: hp('2%'),
     marginVertical: hp('1%'),
-    color: '#333', // Dark grey color for user text
-    fontWeight: '500', // Medium font weight
   },
   noDataText: {
     fontSize: hp('2%'),
-    textAlign: 'center',
-    color: '#888', // Light grey color for no data text
   },
 });

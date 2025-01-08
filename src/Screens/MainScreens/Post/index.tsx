@@ -81,41 +81,45 @@ import {
 
 const Post = ({navigation}: {navigation: any}) => {
   const [sections, setSections] = useState([
+    // {
+    //   section: 'ModuleOne',
+    //   data: [
+    //     {name: 'DataTypes'},
+    //     {name: 'Variables'},
+    //     {name: 'Function'},
+    //     {name: 'Hooks'},
+    //     {name: 'Chaining'},
+    //     {name: 'CounterApp'},
+    //     {name: 'SortComponent'},
+    //     {name: 'FliterComponent'},
+    //   ],
+    // },
+    // {
+    //   section: 'ModuleTwo',
+    //   data: [
+    //     {name: 'Inline'},
+    //     {name: 'Internal'},
+    //     {name: 'External'},
+    //     {name: 'ScrollViewComponent'},
+    //     {name: 'FlatListComponent'},
+    //     {name: 'FlatlistInsideScrollView'},
+    //     {name: 'ActivityIndicatorComponent'},
+    //     {name: 'ModelComponent'},
+    //     {name: 'ImageComponent'},
+    //     {name: 'BackgroundImage'},
+    //     {name: 'ModalImageCoomponent'},
+    //     {name: 'InputComponent'},
+    //     {name: 'AudioComponent'},
+    //     {name: 'SwitchandChecbox'},
+    //   ],
+    // },
+    // {
+    //   section: 'ModuleFour',
+    //   data: [{name: 'Home'}],
+    // },
     {
-      section: 'ModuleOne',
-      data: [
-        {name: 'DataTypes'},
-        {name: 'Variables'},
-        {name: 'Function'},
-        {name: 'Hooks'},
-        {name: 'Chaining'},
-        {name: 'CounterApp'},
-        {name: 'SortComponent'},
-        {name: 'FliterComponent'},
-      ],
-    },
-    {
-      section: 'ModuleTwo',
-      data: [
-        {name: 'Inline'},
-        {name: 'Internal'},
-        {name: 'External'},
-        {name: 'ScrollViewComponent'},
-        {name: 'FlatListComponent'},
-        {name: 'FlatlistInsideScrollView'},
-        {name: 'ActivityIndicatorComponent'},
-        {name: 'ModelComponent'},
-        {name: 'ImageComponent'},
-        {name: 'BackgroundImage'},
-        {name: 'ModalImageCoomponent'},
-        {name: 'InputComponent'},
-        {name: 'AudioComponent'},
-        {name: 'SwitchandChecbox'},
-      ],
-    },
-    {
-      section: 'ModuleFour',
-      data: [{name: 'Home'}],
+      section: 'ModuleFive',
+      data: [{name: 'RTKApiCalls'}, {name: 'AxiosApiCalls'}],
     },
   ]);
 

@@ -13,6 +13,12 @@ import Profile from '../Screens/MainScreens/Profile';
 import Settings from '../Screens/MainScreens/Settings';
 import DataTypes from '../Screens/Modules/ModuleOne/DataTypes';
 import Home from '../Screens/MainScreens/Home';
+import RTKApiCalls from '../Screens/Modules/ModuleFive/RTKApiCalls/Index';
+import GetMethodRTK from '../Screens/Modules/ModuleFive/RTKApiCalls/GetMethodRTK';
+import PatchMethodRTK from '../Screens/Modules/ModuleFive/RTKApiCalls/PatchMethodRTK';
+import DeleteMethodRTK from '../Screens/Modules/ModuleFive/RTKApiCalls/DeleteMethodRTK';
+import PostMethodRTK from '../Screens/Modules/ModuleFive/RTKApiCalls/PostMethodRTK';
+import AxiosApiCalls from '../Screens/Modules/ModuleFive/AxiosApiCalls';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -31,6 +37,12 @@ const Routes = () => {
         <Stack.Screen name="Three" component={Three} />
         <Stack.Screen name="Post" component={Post} />
         <Stack.Screen name="DataTypes" component={DataTypes} />
+        <Stack.Screen name="RTKApiCalls" component={RTKApiCalls} />
+        <Stack.Screen name="GetMethodRTK" component={GetMethodRTK} />
+        <Stack.Screen name="PostMethodRTK" component={PostMethodRTK} />
+        <Stack.Screen name="PatchMethodRTK" component={PatchMethodRTK} />
+        <Stack.Screen name="DeleteMethodRTK" component={DeleteMethodRTK} />
+        <Stack.Screen name="AxiosApiCalls" component={AxiosApiCalls} />
       </Stack.Navigator>
     </NavigationContainer>
   );
