@@ -21,7 +21,15 @@ export const hostApiServices = createApi({
                 body: data,
             }),
         }),
+        // Users POST Call
+        putRequestToUpdateInfo: builder.mutation({
+            query: (data) => ({
+                url: `/students/${data?.id}`,
+                method: 'PUT',
+                body: data,
+            }),
+        }),
     }),
 });
 
-export const { useLazyGetUsersQuery, usePostRequestToUpdateInfoMutation } = hostApiServices;
+export const { useLazyGetUsersQuery, usePostRequestToUpdateInfoMutation, usePutRequestToUpdateInfoMutation } = hostApiServices;
