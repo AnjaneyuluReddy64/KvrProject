@@ -29,7 +29,28 @@ export const hostApiServices = createApi({
                 body: data,
             }),
         }),
+
+        // users Delete call
+        deleteUser: builder.mutation({
+            query: ({ data }) => {
+                // console.log('payload==>', data)
+                return {
+                    url: `/students/${data?.id}`,
+                    method: 'DELETE',
+
+                }
+            }
+        }),
+
+
+
+
     }),
 });
 
-export const { useLazyGetUsersQuery, usePostRequestToUpdateInfoMutation, usePutRequestToUpdateInfoMutation } = hostApiServices;
+export const {
+    useLazyGetUsersQuery,
+    usePostRequestToUpdateInfoMutation,
+    usePutRequestToUpdateInfoMutation,
+    useDeleteUserMutation
+} = hostApiServices;
