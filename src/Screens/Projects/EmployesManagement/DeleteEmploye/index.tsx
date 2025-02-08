@@ -1,39 +1,52 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect} from 'react';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+import React, {useEffect} from 'react';
+import {
+  useDeleteUserMutation,
+  useLazyGetUsersQuery,
+} from '../../../../APIServices/hostApiServices';
 
-import {useLazyGetUsersQuery} from '../../../../../APIServices/hostApiServices';
-
-const GetMethodRTK = () => {
+const DeleteEmploye = () => {
   const [triggerFetchUser, userData] = useLazyGetUsersQuery();
-
-  const userList = userData.currentData || [];
-  const isLoading = userData.isLoading || false;
+  const userList = userData?.currentData || [];
+  const isLoading = userData?.isLoading || false;
 
   useEffect(() => {
     fetchUser();
   }, []);
 
   const fetchUser = async () => {
+    const response = await triggerFetchUser({}).unwrap();
     try {
-      const resoonse = await triggerFetchUser({}).unwrap();
-      if (resoonse) {
-        console.log('Fetch Sucessfully');
-      } else {
-        console.log('Fetch Faild');
-      }
+      console.log('fetch sucess');
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    console.log(isLoading);
-  }, []);
-
+  const refreshHandler = () => {
+    fetchUser();
+  };
+  const [deleteStudentDataAPI] = useDeleteUserMutation();
+  const onDeleteHandler = async (idNumber: number) => {
+    const data = {
+      id: idNumber,
+    };
+    const response = await deleteStudentDataAPI({data: data});
+    try {
+      if (response) {
+        refreshHandler();
+        console.log('delete succes', response);
+      } else {
+        console.log('deleteresponse faild', response);
+      }
+    } catch (error) {
+      console.error('Delete response===>', error);
+    }
+  };
   const renderUserCard = ({item}) => (
     <View style={styles.userCard}>
       <View style={styles.rowContainer}>
@@ -44,37 +57,45 @@ const GetMethodRTK = () => {
         <Text style={styles.userText}>{item?.phone}</Text>
         <Text style={styles.userText}>{item?.country}</Text>
       </View>
+      <View style={[(styles.studentName, {color: 'red'})]}>
+        <TouchableOpacity
+          onPress={() => {
+            onDeleteHandler(item?.id);
+          }}>
+          <Text
+            style={[styles.studentName, {color: 'red', textAlign: 'right'}]}>
+            Delete
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
-
   return (
-    <View style={styles.container}>
-      <View style={styles.contentWrapper}>
-        {isLoading ? ( //step -6
-          <View style={styles.loadingContainer}>
-            <Text style={styles.loadingText}>Loading...</Text>
-          </View>
-        ) : (
-          <View style={styles.dataWrapper}>
-            {userList.length === 0 ? ( //step -7
-              <View style={styles.loadingContainer}>
-                <Text style={styles.noDataText}>No Data Found</Text>
-              </View>
-            ) : (
-              <FlatList //step -8
-                data={userList || []}
-                renderItem={renderUserCard}
-                keyExtractor={(item, index) => index.toString()}
-              />
-            )}
-          </View>
-        )}
-      </View>
+    <View style={styles.contentWrapper}>
+      {isLoading ? ( //step -6
+        <View style={styles.loadingContainer}>
+          <Text style={styles.loadingText}>Loading...</Text>
+        </View>
+      ) : (
+        <View style={styles.dataWrapper}>
+          {userList.length === 0 ? ( //step -7
+            <View style={styles.loadingContainer}>
+              <Text style={styles.noDataText}>No Data Found</Text>
+            </View>
+          ) : (
+            <FlatList
+              data={userList || []}
+              renderItem={renderUserCard}
+              keyExtractor={(item, index) => index.toString()}
+            />
+          )}
+        </View>
+      )}
     </View>
   );
 };
 
-export default GetMethodRTK;
+export default DeleteEmploye;
 
 const styles = StyleSheet.create({
   container: {

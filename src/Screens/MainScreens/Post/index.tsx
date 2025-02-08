@@ -121,6 +121,10 @@ const Post = ({navigation}: {navigation: any}) => {
       section: 'ModuleFive',
       data: [{name: 'RTKApiCalls'}, {name: 'AxiosApiCalls'}],
     },
+    {
+      section: 'Projects',
+      data: [{name: 'EmployesManagement'}],
+    },
   ]);
 
   const navigateToScreen = (screenName: string) => {

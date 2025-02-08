@@ -19,6 +19,11 @@ import PatchMethodRTK from '../Screens/Modules/ModuleFive/RTKApiCalls/PatchMetho
 import DeleteMethodRTK from '../Screens/Modules/ModuleFive/RTKApiCalls/DeleteMethodRTK';
 import PostMethodRTK from '../Screens/Modules/ModuleFive/RTKApiCalls/PostMethodRTK';
 import AxiosApiCalls from '../Screens/Modules/ModuleFive/AxiosApiCalls';
+import EmployesManagement from '../Screens/Projects/EmployesManagement';
+import AddEmploye from '../Screens/Projects/EmployesManagement/AddEmploye';
+import EmployeList from '../Screens/Projects/EmployesManagement/EmployeList';
+import EditEmploye from '../Screens/Projects/EmployesManagement/EditEmploye';
+import DeleteEmploye from '../Screens/Projects/EmployesManagement/DeleteEmploye';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -43,6 +48,15 @@ const Routes = () => {
         <Stack.Screen name="PatchMethodRTK" component={PatchMethodRTK} />
         <Stack.Screen name="DeleteMethodRTK" component={DeleteMethodRTK} />
         <Stack.Screen name="AxiosApiCalls" component={AxiosApiCalls} />
+
+        <Stack.Screen
+          name="EmployesManagement"
+          component={EmployesManagement}
+        />
+        <Stack.Screen name="EmployeList" component={EmployeList} />
+        <Stack.Screen name="AddEmploye" component={AddEmploye} />
+        <Stack.Screen name="EditEmploye" component={EditEmploye} />
+        <Stack.Screen name="DeleteEmploye" component={DeleteEmploye} />
       </Stack.Navigator>
     </NavigationContainer>
   );
